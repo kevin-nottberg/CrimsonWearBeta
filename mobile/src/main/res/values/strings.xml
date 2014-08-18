@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">CrimsonWearProj</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="add_dot">Add Dot</string>
+    <string name="title_activity_my_activity2">MyActivity2</string>
+    <string name="addDot">Add Dot</string>
+    <string name="setcount">Set Count:</string>
+    <string name="side">Side:</string>
+    <string name="hoirz">Horizontal:</string>
+    <string name="horizdir">Horizontal Direction:</string>
+    <string name="horizstep">Horizontal Step:</string>
+    <string name="vert">Vertical:</string>
+    <string name="vertDir">Vertical Direction:</string>
+    <string name="vertStep">Vertical Step:</string>
+
+</resources>
