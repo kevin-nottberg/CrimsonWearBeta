@@ -3,6 +3,7 @@ package com.example.kevinnottberg.crimsonwearproj;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -69,6 +70,8 @@ public class AddDotAct extends Activity {
             public void onClick(View v) {
                 addDot();
                 addToXml();
+                Intent mainAct = new Intent( getApplicationContext(), MoblieMainAct.class );
+                startActivity( mainAct );
             }
         });
 
@@ -97,8 +100,12 @@ public class AddDotAct extends Activity {
     }
 
     public void addToXml() {
+        Log.d( "mobliemain", "AddDotAct: AddtoXML" );
         DotBookParser dotbookparser = new DotBookParser( this, filename );
-        dotbookparser.initRaw();
+        Boolean isFile = new File( this.getFilesDir(), filename ).exists();
+        if( isFile == true ) {
+            dotbookparser.initRaw();
+        }
         dotbookparser.addDot( dotId, setCount, side, horizontal, horizDir, horizStep, vertical, vertDir, vertStep );
         dotbookparser.write();
     }

@@ -17,6 +17,7 @@ import android.content.Context;
 public class DotBookParser {
 
     Context context;
+    Document doc;
 
     static final String DOT = "dot";
     static final String SETCOUNT = "setcount";
@@ -36,13 +37,13 @@ public class DotBookParser {
     public DotBookParser( Context cont, String fn ) {
         context = cont;
         filename = fn;
+        parser = new XmlParser( context );
+        doc = parser.getDomElement( filename );
+        dotBook = new DotBook();
     }
 
     public void initRaw() {
-        parser = new XmlParser( context );
-        Document doc = parser.getDomElement( filename );
         NodeList dots = doc.getElementsByTagName( DOT );
-        dotBook = new DotBook();
         for( int j = 0; j < dots.getLength(); j++ ){
             if ( dots.item( j ).getNodeType() == Node.ELEMENT_NODE ) {
                 Dot dot = new Dot();
@@ -76,6 +77,10 @@ public class DotBookParser {
         dot.setVertstep( vertStep );
         dotBook.addDot( dot );
 
+    }
+
+    public DotBook getDotBook() {
+        return dotBook;
     }
 
     public void write() {
